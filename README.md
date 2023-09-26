@@ -26,6 +26,8 @@
     * "id" BIGINT NOT NULL, PK
     * "name" VARCHAR NOT NULL
     * "role_id" BIGINT NOT NULL -> Role, FK
+    * "login" VARCHAR NOT NULL
+    * "password" VARCHAR NOT NULL
 3. "Doctor":
     * "id" BIGINT NOT NULL, PK
     * "user_id" BIGINT NOT NULL -> User, FK
