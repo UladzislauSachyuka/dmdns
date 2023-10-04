@@ -14,6 +14,7 @@
    * Возможность оставить отзыв о качестве оказанной услуги и о центре в целом.
 7. Для доктора:
    * Просмотр своего расписания.
+   * Составление своего расписания.
 8. Для администратора:
    * Просмотр продаж.
    * Просмотр истории посещений.
@@ -31,44 +32,41 @@
 3. "Doctor":
     * "id" BIGINT NOT NULL, PK
     * "user_id" BIGINT NOT NULL -> User, FK
-    * "category" VARCHAR NOT NULL
+    * "category_id" BIGINT NOT NULL -> Category, FK 
 4. "Client":
     * "id" BIGINT NOT NULL, PK
     * "user_id" BIGINT NOT NULL -> User, FK
     * "birthdate" DATE NOT NULL
     * "address" VARCHAR NOT NULL
-5. "Admin":
+5. "Category":
     * "id" BIGINT NOT NULL, PK
-    * "user_id" BIGINT NOT NULL -> User, FK
-6. "History":
-    * "id" BIGINT NOT NULL, PK
-    * "client_id" BIGINT NOT NULL -> Client, FK
-7. "Office":
+    * "name" VARCHAR NOT NULL
+6. "Office":
     * "id" BIGINT NOT NULL, PK
     * "number" INT NOT NULL
-8. "Service":
+7. "Service":
     * "id" BIGINT NOT NULL, PK
     * "name" VARCHAR NOT NULL
     * "price" INT NOT NULL
-9. "Schedule":
+8. "Schedule":
     * "id" BIGINT NOT NULL, PK
     * "doctor_id" BIGINT NOT NULL -> Doctor, FK
     * "client_id" BIGINT NOT NULL -> Client, FK
     * "office_id" BIGINT NOT NULL -> Office, FK
     * "date" date NOT NULL
-10. "Sale":
+9. "Sale":
     * "id" BIGINT NOT NULL, PK
     * "service_id" BIGINT NOT NULL -> Service, FK
     * "doctor_id" BIGINT NOT NULL -> Doctor, FK
     * "client_id" BIGINT NOT NULL -> Client, FK
     * "date" DATE NOT NULL
-11. "Review":
+10. "Review":
     * "id" BIGINT NOT NULL, PK
     * "client_id" BIGINT NOT NULL -> Client, FK
     * "content" VARCHAR NOT NULL
     * "mark" INT NOT NULL
     * "date" DATE NOT NULL
-12. "Log":
+11. "Log":
     * "id" BIGINT NOT NULL, PK
     * "action" VARCHAR NOT NULL
     * "user_id" BIGINT NOT NULL -> User, FK
